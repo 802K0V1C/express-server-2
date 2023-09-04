@@ -1,4 +1,17 @@
 <h2>Contact me</h2>
+
+<div class="{{ isSent }}">
+{{#if isSent}}
+    <p>The message has been sent!</p>
+    <p>Filename: {{ fileName }} has been saved!</p>
+{{/if}}
+</div>
+<div class="{{ isError }}">
+{{#if isError}}
+    <p>You can't leave fields empty!</p>
+{{/if}}
+</div>
+
 <form action="/contact/send-message" method="POST" enctype="multipart/form-data">
 <label>
     Your name: <input type="text" name="author">
@@ -9,7 +22,7 @@
 <label>
     Title: <input type="text" name="title">
 </label>
-    <label>
+<label>
     Project design: <input type="file" name="design">
 </label>
 <label>
